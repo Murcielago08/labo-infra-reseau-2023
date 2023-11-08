@@ -13,8 +13,7 @@
 
 - outil :
   - flask
-  - maria db
-  - 
+  - maria db (sqlite/mysql)
 
 
 # Cheminement intall/SetUp
