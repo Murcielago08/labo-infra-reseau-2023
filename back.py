@@ -1,54 +1,33 @@
-from flask import Flask, url_for, request, render_template
-from markupsafe import escape
+from flask import Flask, render_template, redirect, url_for, request
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
+app.secret_key = 'votre_clé_secrète'  # Remplacez ceci par une clé secrète sécurisée
 
-# @app.route('/user/<username>')
-# def show_user_profile(username):
-#     # show the user profile for that user
-#     return f'User {escape(username)}'
-
-# @app.route('/post/<int:post_id>')
-# def show_post(post_id):
-#     # show the post with the given id, the id is an integer
-#     return f'Post {post_id}'
-
-# @app.route('/path/<path:subpath>')
-# def show_subpath(subpath):
-#     # show the subpath after /path/
-#     return f'Subpath {escape(subpath)}'    
-
-# @app.route('/user/<username>')
-# def profile(username):
-#     return f'{username}\'s profile'
-
-# with app.test_request_context():
-#     print(url_for('index'))
-#     print(url_for('login'))
-#     print(url_for('login', next='/'))
-#     print(url_for('profile', username=input('')))    
+class LoginForm(FlaskForm):
+    username = StringField('Nom d\'utilisateur', validators=[DataRequired()])
+    password = PasswordField('Mot de passe', validators=[DataRequired()])
+    submit = SubmitField('Se connecter')
 
 @app.route('/')
-def index():
-    url_for('static', filename='style.css')
-    return render_template('hello.html')
+def accueil():
+    return render_template('index.html')
 
 # @app.route('/login', methods=['GET', 'POST'])
 # def login():
-#     if request.method == 'POST':
-#         return do_the_login()
-#     else:
-#         return show_the_login_form()
+#     form = LoginForm()
+#     if form.validate_on_submit():
+#         # Ici, vous pouvez vérifier les informations d'authentification et effectuer la connexion
+#         # par exemple, vérifier le nom d'utilisateur et le mot de passe
+#         # Si les informations sont valides, redirigez l'utilisateur vers une page de succès
+#         return redirect(url_for('success'))
+#     return render_template('login.html', form=form)
 
-# @app.get('/login')
-# def login_get():
-#     return show_the_login_form()
+# @app.route('/success')
+# def success():
+#     return "Connexion réussie"
 
-# @app.post('/login')
-# def login_post():
-#     return do_the_login()
-
-# @app.route('/hello/')
-# @app.route('/hello/<name>')
-# def hello(name=None):
-#     return render_template('hello.html', name=name)
+if __name__ == '__main__':
+    app.run(debug=True)
