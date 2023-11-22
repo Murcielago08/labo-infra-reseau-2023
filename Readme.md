@@ -37,8 +37,9 @@ my-flask-app
 - Mettre en place Flask ✅
 
 ```
-pip install Flask
-pip install Flask-WTF
+python -m venv .env_lir2023
+.\.env_lir2023\Scripts\activate 
+pip install -r requirements.txt
 ```
 ---
 
@@ -47,19 +48,22 @@ pip install Flask-WTF
   - [Page d'accueil](/templates/index.html)
 ---
 
-- Créer 3 autres pages accessibles via des routes (exemple /page2)
+- Créer 3 autres pages accessibles via des routes (exemple /page2) ✅
   - [Liste membre](/templates/Membres.html)
   - [Contact](/templates/Contact.html)
   - [Info](/templates/Info.html)
 
 ---
 
-- Personnaliser le title et le favicon du site (sur la liste de site ouvert)
+- Personnaliser le title et le favicon du site (sur la liste de site ouvert) ✅
 
 ---
 
 - Styliser le site avec du CSS
-  - [Style accueil](static/index.css)
+  - [Style accueil](static/Index.css)
+  - [Style liste membre](static/Membres.css)
+  - [Style contact](static/Contact.css)
+  - [Style info](static/Info.css)
 ---
 
 - Mettre en place une base de données sur le serveur qui servira pour le site
