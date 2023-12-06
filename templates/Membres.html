@@ -8,14 +8,30 @@
 <body>
     <header>
         <h1>Bienvenue sur la page d'accueil des membres</h1>
-        <p>test</p>
+        <p>Voici la liste des membres du site :</p>
     </header>
-
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Liste des Membres</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for resultat in resultats %}
+                    <tr>
+                        <td>{{ resultat }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <nav>
         <ul>
             <li><a href="/">Accueil</a></li>
+            <li><a href="/info">Informations</a></li>
             <li><a href="/contact">Contact</a></li>
-            <li><a href="/info">Info</a></li>
+            
         </ul>
     </nav>
 </body>

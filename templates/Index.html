@@ -1,24 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'accueil de ce site</title>
+    <title>Page d'accueil</title>
     <link rel="icon" href="/static/oui.jpg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/static/Index.css">
 </head>
 <body>
     <header>
-        <h1>Bienvenue sur la page d'accueil</h1>
-        <p>Ceci est la page d'accueil de notre application Flask.</p>
+        <h1>Bienvenue sur la page d'accueil des infos</h1>
+        <p>test</p>
     </header>
+
+    <section class="appointments">
+        <h2>Mes Rendez-vous</h2>
+        <div class="upcoming">
+            <h3>À venir</h3>
+            <!-- Liste des rendez-vous à venir -->
+            <ul id="upcomingAppointments">
+                <li>Date et heure du rendez-vous - Description</li>
+                <!-- Ajoutez d'autres éléments de liste au besoin -->
+            </ul>
+        </div>
+        
+        <div class="current">
+            <h3>En cours</h3>
+            <!-- Liste des rendez-vous en cours -->
+            <ul id="currentAppointments">
+                <li>Date et heure du rendez-vous - Description</li>
+                <!-- Ajoutez d'autres éléments de liste au besoin -->
+            </ul>
+        </div>
+
+        <div class="past">
+            <h3>Passés</h3>
+            <!-- Liste des rendez-vous passés -->
+            <ul id="pastAppointments">
+                <li>Date et heure du rendez-vous - Description</li>
+                <!-- Ajoutez d'autres éléments de liste au besoin -->
+            </ul>
+        </div>
+    </section>
 
     <nav>
         <ul>
             <li><a href="/list_membre">Liste des Membres</a></li>
+            <li><a href="/info">Informations</a></li>
             <li><a href="/contact">Contact</a></li>
-            <li><a href="/info">Info</a></li>
         </ul>
     </nav>
+
 </body>
 </html>

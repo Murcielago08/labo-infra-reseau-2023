@@ -34,17 +34,16 @@ curseur.execute("DROP TABLE IF EXISTS test")
 curseur.execute("CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY AUTO_INCREMENT, user TEXT, password TEXT, description TEXT)")
 
 # Remplacez 'ma_table' par le nom de votre table et ajustez les colonnes et les valeurs selon votre structure
-table_name = 'test'
-colonne1 = 'id'
-colonne2 = 'user'
-colonne3 = 'password'
-colonne4= 'description'
+# table_name = 'test'
+# colonne2 = 'user'
+# colonne3 = 'password'
+# colonne4= 'description'
 
 # Exemple d'insertion de valeurs dans la table
-valeurs = [(1, 'John', 'test', 'je suis John'), (2, 'Alice','test', 'je suis Alice'), (3, 'Bob', 'test', 'je suis Bob')]
+valeurs = [('John', 'test', 'je suis John'), ('Alice','test', 'je suis Alice'), ('Bob', 'test', 'je suis Bob')]
 
 # Utiliser une requête paramétrée pour éviter les problèmes de sécurité liés aux injections SQL
-requete_insertion = f"INSERT INTO {table_name} ({colonne1}, {colonne2}, {colonne3}, {colonne4}) VALUES (%s, %s, %s, %s)"
+requete_insertion = f"INSERT INTO test (user, password, description) VALUES (%s, %s, %s)"
 
 # Exécuter la requête d'insertion avec les valeurs
 curseur.executemany(requete_insertion, valeurs)
@@ -52,15 +51,11 @@ curseur.executemany(requete_insertion, valeurs)
 # Valider les modifications dans la base de données
 conn.commit()
 
-resultats = curseur.fetchall()
+# resultats = curseur.fetchall()
 
-# Afficher les résultats
-for resultat in resultats:
-    print(resultat)
-
-# Fermer le curseur et la connexion
-curseur.close()
-conn.close()
+# # Afficher les résultats
+# for resultat in resultats:
+#     print(resultat)
 
 @app.route('/')
 def accueil():
@@ -69,8 +64,14 @@ def accueil():
 
 @app.route('/list_membre')
 def List_Membre():
+    # Exécuter la requête SELECT pour récupérer le contenu de la table
+    curseur.execute("SELECT user, description FROM test")
 
-    return render_template('Membres.html')
+    # Récupérer toutes les lignes résultantes
+    resultats = curseur.fetchall()
+
+    # Rendre le template HTML avec les résultats
+    return render_template('Membres.html', resultats=resultats)
 
 @app.route('/contact')
 def Contact():
@@ -97,3 +98,7 @@ def Info():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    if not (debug):
+        # Fermer le curseur et la connexion
+        curseur.close()
+        conn.close()
