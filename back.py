@@ -4,6 +4,7 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired
 import mariadb
 import sys
+import mysql.connector
 
 app = Flask(__name__)
 # app.secret_key = 'votre_clé_secrète'  # Remplacez ceci par une clé secrète sécurisée
@@ -14,16 +15,52 @@ app = Flask(__name__)
 #     submit = SubmitField('Se connecter')
 
 try:
-   conn = mariadb.connect(
-      host='10.1.1.10',
-      port= 3306,
-      user='root',
-      password='test',
-      database='siteDb')
-   conn.auto_reconnect = True
+    conn = mysql.connector.connect(
+        host='10.1.1.10',
+        port= 3306,
+        user='mysql',
+        password='test',
+        database='siteDb')
+    conn.auto_reconnect = True
 except mariadb.Error as e:
    print(f"Error connecting to the database: {e}")
-#    sys.exit(1)
+
+# Créer un objet curseur pour exécuter des requêtes SQL
+curseur = conn.cursor()
+
+curseur.execute("DROP TABLE IF EXISTS test")
+
+# Exemple : exécuter une requête SQL
+curseur.execute("CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY AUTO_INCREMENT, user TEXT, password TEXT, description TEXT)")
+
+# Remplacez 'ma_table' par le nom de votre table et ajustez les colonnes et les valeurs selon votre structure
+table_name = 'test'
+colonne1 = 'id'
+colonne2 = 'user'
+colonne3 = 'password'
+colonne4= 'description'
+
+# Exemple d'insertion de valeurs dans la table
+valeurs = [(1, 'John', 'test', 'je suis John'), (2, 'Alice','test', 'je suis Alice'), (3, 'Bob', 'test', 'je suis Bob')]
+
+# Utiliser une requête paramétrée pour éviter les problèmes de sécurité liés aux injections SQL
+requete_insertion = f"INSERT INTO {table_name} ({colonne1}, {colonne2}, {colonne3}, {colonne4}) VALUES (%s, %s, %s, %s)"
+
+# Exécuter la requête d'insertion avec les valeurs
+curseur.executemany(requete_insertion, valeurs)
+
+# Valider les modifications dans la base de données
+conn.commit()
+
+resultats = curseur.fetchall()
+
+# Afficher les résultats
+for resultat in resultats:
+    print(resultat)
+
+# Fermer le curseur et la connexion
+curseur.close()
+conn.close()
 
 @app.route('/')
 def accueil():

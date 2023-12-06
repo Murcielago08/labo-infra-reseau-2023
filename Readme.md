@@ -59,16 +59,17 @@ pip install -r requirements.txt
 
 ---
 
-- Styliser le site avec du CSS
+- Styliser le site avec du CSS : 
   - [Style accueil](static/Index.css)
   - [Style liste membre](static/Membres.css)
   - [Style contact](static/Contact.css)
   - [Style info](static/Info.css)
 ---
 
-- Mettre en place une base de données sur le serveur qui servira pour le site
+- Mettre en place une base de données sur le serveur qui servira pour le site ✅
   - site en local 
   - db sur une vm
+  - connecter les deux
 ---
 
 ## Bonus
