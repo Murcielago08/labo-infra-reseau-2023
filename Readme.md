@@ -59,7 +59,7 @@ pip install -r requirements.txt
 
 ---
 
-- Styliser le site avec du CSS : 
+- Styliser le site avec du CSS 
   - [Style accueil](static/Index.css)
   - [Style liste membre](static/Membres.css)
   - [Style contact](static/Contact.css)
