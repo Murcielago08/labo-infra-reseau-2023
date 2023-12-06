@@ -15,10 +15,10 @@ app = Flask(__name__)
 
 try:
    conn = mariadb.connect(
-      host='127.0.0.1',
+      host='10.1.1.10',
       port= 3306,
       user='root',
-      password='goldSTAR',
+      password='test',
       database='siteDb')
    conn.auto_reconnect = True
 except mariadb.Error as e:

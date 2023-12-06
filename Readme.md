@@ -67,7 +67,8 @@ pip install -r requirements.txt
 ---
 
 - Mettre en place une base de données sur le serveur qui servira pour le site
-
+  - site en local 
+  - db sur une vm
 ---
 
 ## Bonus

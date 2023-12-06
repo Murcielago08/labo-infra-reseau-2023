@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'accueil de ce site</title>
     <link rel="icon" href="/static/oui.jpg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/static/Index.css">
 </head>
 <body>
-    <h1>Bienvenue sur la page d'accueil</h1>
-    <p>Ceci est la page d'accueil de notre application Flask.</p>
+    <header>
+        <h1>Bienvenue sur la page d'accueil</h1>
+        <p>Ceci est la page d'accueil de notre application Flask.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/list_membre">Liste des Membres</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/info">Info</a></li>
+        </ul>
+    </nav>
 </body>
 </html>
