@@ -1,20 +1,21 @@
+<!-- templates/inscription.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page de Connexion</title>
+    <title>Inscription</title>
     <link rel="icon" href="/static/oui.jpg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/static/login.css">
 </head>
 <body>
 
 <header>
-    <h1>Connexion</h1>
+    <h1>Inscription</h1>
 </header>
 
 <section>
-    <form method="POST" action="{{ url_for('login', next=request.args.get('next')) }}">
+    <form method="POST" action="/add_user">
         <div>
             <label for="username">Nom d'utilisateur :</label>
             <input type="text" id="username" name="username" required>
@@ -24,16 +25,15 @@
             <input type="password" id="password" name="password" required>
         </div>
         <div>
-            <button type="submit">Se connecter</button>
+            <label for="description">Description :</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+        </div>
+        <div>
+            <button type="submit">S'inscrire</button>
         </div>
     </form>
-    
 
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
-
-    <p>Vous n'avez pas de compte ? <a href="/inscription">S'inscrire</a></p>
+    <p>Déjà inscrit ? <a href="/login">Se connecter</a></p>
 </section>
 
 <nav>

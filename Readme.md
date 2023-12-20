@@ -74,7 +74,7 @@ pip install -r requirements.txt
 
 ## Bonus
 
-- Créer une page pour s'inscrire
+- Créer une page pour s'inscrire ✅
 
 - Mettre en place un système de CRUD pour créer, modifier et supprimer un utilisateur
 
