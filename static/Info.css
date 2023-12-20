@@ -1,3 +1,4 @@
+/* static/Index.css */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f5;
@@ -10,14 +11,57 @@ body {
 
 header {
     background-color: #4caf50;
-    color: white;
     padding: 20px;
+    color: white;
+}
+
+/* Ajustements pour centrer le texte */
+header div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
-h1 {
+h1, p {
     margin: 0;
-    color: white;
+}
+
+.icon-connexion {
+    width: 50px;
+}
+
+/* Aligner à droite */
+.icon-container {
+    margin-left: auto;
+}
+
+section {
+    margin: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2, h3 {
+    color: #4caf50;
+}
+
+.upcoming, .current, .past {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
 }
 
 nav {
@@ -43,29 +87,4 @@ nav a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-}
-
-section {
-    margin: 20px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2, h3 {
-    color: #4caf50;
-}
-
-.role-section {
-    margin-bottom: 20px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    margin-bottom: 10px;
 }

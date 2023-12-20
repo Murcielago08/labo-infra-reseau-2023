@@ -1,3 +1,4 @@
+/* static/Index.css */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f5;
@@ -11,12 +12,28 @@ body {
 header {
     background-color: #4caf50;
     padding: 20px;
-    text-align: center;
     color: white;
 }
 
-h1 {
+/* Ajustements pour centrer le texte */
+header div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+h1, p {
     margin: 0;
+}
+
+.icon-connexion {
+    width: 50px;
+}
+
+/* Aligner à droite */
+.icon-container {
+    margin-left: auto;
 }
 
 section {
@@ -59,7 +76,7 @@ nav ul {
     padding: 0;
     overflow: hidden;
     display: flex;
-    justify-content: space-between; /* Espacement entre les éléments */
+    justify-content: space-between;
 }
 
 nav li {
