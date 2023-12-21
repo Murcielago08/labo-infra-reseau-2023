@@ -92,4 +92,10 @@ https://phoenixnap.com/kb/install-flask
 
 https://kanchanardj.medium.com/forming-database-connection-between-maria-db-and-python-flask-31702c86fd95
 
+https://medium.com/tag/python-flask
 
+https://kanchanardj.medium.com/mysql-and-python-13612a048bf2
+
+https://flask.palletsprojects.com/en/3.0.x/quickstart/
+
+https://mariadb.com/docs/server/connect/programming-languages/python/connect/
