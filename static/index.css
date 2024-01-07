@@ -1,4 +1,9 @@
 /* static/Index.css */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f5;
@@ -37,6 +42,7 @@ h1, p {
 }
 
 section {
+    flex: 1; /* Expand to fill remaining space */
     margin: 20px;
     background-color: #fff;
     padding: 20px;
