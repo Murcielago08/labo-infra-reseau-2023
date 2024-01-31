@@ -41,6 +41,18 @@ python -m venv .env_lir2023
 .\.env_lir2023\Scripts\activate 
 pip install -r requirements.txt
 ```
+
+[Site ^^](http://127.0.0.1:5000)
+
+DB :
+
+```
+show databases;
+use siteDb;
+show tables;
+select * from test;
+```
+
 ---
 
 - Créer la page d'accueil du site ✅

@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Page des membres</title>
     <link rel="icon" href="/static/oui.jpg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/static/Membres.css">
 </head>
+
 <body>
     <header>
         <h1>Bienvenue sur la page d'accueil des membres</h1>
-        <a href="/login" class="icon-container"><img class="icon-connexion" src="/static/icone_connexion.png" alt="Icône de connexion"></a>
+        <div class="header-content">
+            <a href="/login" class="icon-container">
+                <img class="icon-connexion" src="/static/icone_connexion.png" alt="Icône de connexion">
+            </a>
+        </div>
         <p>Voici la liste des membres du site :</p>
     </header>
     <div>
@@ -20,9 +26,9 @@
             </thead>
             <tbody>
                 {% for resultat in resultats %}
-                    <tr>
-                        <td>{{ resultat }}</td>
-                    </tr>
+                <tr>
+                    <td>{{ resultat }}</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
@@ -32,8 +38,8 @@
             <li><a href="/">Accueil</a></li>
             <li><a href="/info">Informations</a></li>
             <li><a href="/contact">Contact</a></li>
-            
         </ul>
     </nav>
 </body>
+
 </html>

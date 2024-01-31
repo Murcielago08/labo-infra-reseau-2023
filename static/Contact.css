@@ -1,3 +1,8 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f5;
@@ -13,6 +18,18 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
+}
+
+section {
+    flex: 1;
+    margin: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -80,4 +97,9 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+.icon-connexion {
+    width: 50px; /* Ajustez la largeur de l'icône selon vos préférences */
+    margin: 20px;
 }

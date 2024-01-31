@@ -15,13 +15,28 @@ header {
     text-align: center;
 }
 
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-container {
+    margin-right: 10px; /* Add margin to separate the icon from the text */
+}
+
+.icon-connexion {
+    width: 50px; /* Set the desired width for the icon */
+}
+
 h1 {
     margin: 0;
-    color: white;
 }
 
 div {
+    flex: 1; /* Expand to fill remaining space */
     margin: 20px;
+    
 }
 
 table {
@@ -30,7 +45,8 @@ table {
     margin-top: 20px;
 }
 
-thead th, tbody td {
+thead th,
+tbody td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;

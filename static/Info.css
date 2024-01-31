@@ -1,4 +1,9 @@
 /* static/Index.css */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f5;
@@ -13,6 +18,9 @@ header {
     background-color: #4caf50;
     padding: 20px;
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Ajustements pour centrer le texte */
@@ -31,12 +39,15 @@ h1, p {
     width: 50px;
 }
 
-/* Aligner à droite */
+/* Aligner l'icône à droite */
 .icon-container {
     margin-left: auto;
+    display: flex;
+    align-items: center;
 }
 
 section {
+    flex: 1;
     margin: 20px;
     background-color: #fff;
     padding: 20px;
