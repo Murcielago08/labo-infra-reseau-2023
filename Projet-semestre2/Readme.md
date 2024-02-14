@@ -1,19 +1,19 @@
-# **Ansible et Vagrant**
+# Projet Ansible et Vagrant
 
 ## Sommaire
 
-- [Membre](#membre)
-- [🎯 Objectif](#🎯-objectif)
-- [Préparation](#préparation)
-- [Machines](#machines)
-- 
+- [Projet Ansible et Vagrant](#projet-ansible-et-vagrant)
+  - [Sommaire](#sommaire)
+  - [🎯 Objectif](#-objectif)
+  - [Préparation](#préparation)
+  - [Machines](#machines)
+  - [✅ Checklist](#-checklist)
+  - [Bonus](#bonus)
+  - [🖲️ Technologies et langages utilisés](#️-technologies-et-langages-utilisés)
+  - [📖 Ressources](#-ressources)
 
 
-## **Membre**
-
-Joris Pellier
-
-## **🎯 Objectif**
+## 🎯 Objectif
 
 Ce projet vous fera utiliser le plus possible Ansible avec Vagrant pour déployer et approvisionner des machines virtuelles.
 
@@ -21,26 +21,19 @@ L'inventaire utilisé sera statique, donc il faudra faire attention à bien rens
 
 Le but final d'Ansible est d'être utilisé avec un hyperviseur pour déployer des VM et les provisionner rapidement, mais cela sera fait manuellement dans ce TP.
 
----
+## Préparation
 
-## **Préparation**
-
----
-
-# **Machines**
+## Machines
 
 Votre PC hôte sera celui hébergeant les machines. Ca peut être un autre gros PC à vous, ou votre PC portable.
 
 Installez Vagrant sur votre PC hôte.
 Installez un hyperviseur compatible avec Vagrant (normalement tous).
 
----
 
-## **✅ Checklist**
+## ✅ Checklist
 
 - Paramétrer Vagrant pour créer en une commande trois VM de noms, hostnames et IP différents
-
-- Vous avez normalement vu ça avec Léo si je ne me trompe pas
   
 - Paramétrer Vagrant pour pouvoir utiliser Ansible pour la provision
 
@@ -63,7 +56,7 @@ Installez un hyperviseur compatible avec Vagrant (normalement tous).
     - Changer la database pour la rendre disponible au port 7290
       - (Si nécessaire) ajouter une exception dans le pare-feu pour ce port
 
-  - **Playbook dbadmin qui devra :**
+  - Playbook dbadmin qui devra :
 
     - Mettre à jour les paquets installés sur la machine
 
@@ -75,13 +68,11 @@ Installez un hyperviseur compatible avec Vagrant (normalement tous).
     - Tester en vous rendant sur l'{adresseIP}:{port} de la machine dbadmin en regardant si votre base est visible
 
 
-## **Bonus**
+## Bonus
 
 - Assurer le bon fonctionnement en détruisant les VM puis en relançant Vagrant
 
----
-
-## **🖲️ Technologies et langages utilisés**
+## 🖲️ Technologies et langages utilisés
 
 Vagrant
 
@@ -95,9 +86,7 @@ SSH
 
 YAML
 
----
-
-## **📖 Ressources**
+## 📖 Ressources
 https://developer.hashicorp.com/vagrant/docs/provisioning/ansible
 
 https://www.pgadmin.org/
