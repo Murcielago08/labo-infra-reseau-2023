@@ -1,0 +1,25 @@
+---
+- name: Install PgAdmin and configure web access
+  hosts: all
+  become: true
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+
+    - name: Install PgAdmin
+      apt:
+        name: pgadmin4
+        state: present
+
+    - name: Configure PgAdmin for web access
+      lineinfile:
+        path: /etc/pgadmin4/pgadmin4.conf
+        regexp: '^#?SERVER_MODE = .*'
+        line: 'SERVER_MODE = True'
+
+    - name: Add firewall rule for port 8043
+      ufw:
+        rule: allow
+        port: 8043
+        proto: tcp

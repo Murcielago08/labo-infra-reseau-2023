@@ -1,0 +1,32 @@
+---
+- name: Install PostgreSQL and configure database
+  hosts: all
+  become: true
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+
+    - name: Install PostgreSQL
+      apt:
+        name: postgresql
+        state: present
+
+    - name: Create database
+      shell: createdb mydatabase
+
+    - name: Create table and add entry
+      shell: psql -d mydatabase -c "CREATE TABLE mytable (id serial PRIMARY KEY, name VARCHAR(255)); INSERT INTO mytable (name) VALUES ('entry');"
+
+    - name: Change database port
+      lineinfile:
+        path: /etc/postgresql/12/main/postgresql.conf
+        regexp: '^#?port = .*'
+        line: 'port = 7290'
+      notify: restart postgresql
+
+    - name: Add firewall rule for port 7290
+      ufw:
+        rule: allow
+        port: 7290
+        proto: tcp
