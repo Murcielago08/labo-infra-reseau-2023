@@ -1,25 +1,44 @@
 ---
 - name: Install PgAdmin and configure web access
-  hosts: all
+  hosts: all 
   become: true
   tasks:
-    - name: Update package cache
-      apt:
-        update_cache: yes
+    - name: Install pgadmin4 repository
+      shell: sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-redhat-repo-2-1.noarch.rpm
 
-    - name: Install PgAdmin
-      apt:
+    - name: Install PgAdmin 1/2
+      dnf:
         name: pgadmin4
         state: present
 
-    - name: Configure PgAdmin for web access
-      lineinfile:
-        path: /etc/pgadmin4/pgadmin4.conf
-        regexp: '^#?SERVER_MODE = .*'
-        line: 'SERVER_MODE = True'
+    - name: Install PgAdmin 2/2
+      shell: sudo /usr/pgadmin4/bin/setup-web.sh --yes
+      environnement:
+        PGADMIN_SETUP_EMAIL: "test@yahoo.com"
+        PGADMIN_SETUP_PASSWORD: "test"
+
+    - name: Ensure pgadmin4 configuration directory exists
+      file:
+        path: /etc/pgadmin4
+        state: directory
+        mode: '0755'
+        owner: root
+        group: root
+
+    - name: Create pgadmin4.conf file if it doesn't exist
+      blockinfile:
+        path: /etc/pgadmin4/config_local.py
+        block: |
+          SERVER_MODE = True
+          DEFAULT_SERVER_PORT = 8043
+        create: yes
+        owner: root
+        group: root
+        mode: '0644'
 
     - name: Add firewall rule for port 8043
-      ufw:
-        rule: allow
-        port: 8043
-        proto: tcp
+      firewalld:
+        port: 8043/tcp
+        permanent: yes
+        state: enabled
+        immediate: yes
